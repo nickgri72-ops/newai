@@ -109,7 +109,7 @@ async function send() {
   const loadingId = "loading";
   addMessage("Typing...", "bot");
 
-  const res = await fetch("https://YOUR-RENDER-URL.onrender.com/chat", {
+  const res = await fetch("https://newai-7aj4.onrender.com", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: text })
