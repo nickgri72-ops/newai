@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const fetch = require("node-fetch");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// IMPORTANT: use environment variable later on Render
+// serve frontend
+app.use(express.static(path.join(__dirname, "public")));
+
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 app.post("/chat", async (req, res) => {
@@ -29,4 +32,4 @@ app.post("/chat", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Server running on " + PORT));
+app.listen(PORT, () => console.log("Server running"));
